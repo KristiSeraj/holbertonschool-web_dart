@@ -9,20 +9,15 @@ int whoWins(Map<String, int> teamA, Map<String, int> teamB) {
     } else {
         return 0;
     }
+
 }
 
 int calculateTotal(Map<String, int> team) {
     int total = 0;
 
-    team.forEach((key, value) {
-        if (key == 'Free throws') {
-            total += value;
-        } else if (key == '2 pointer') {
-            total += value * 2;
-        } else if (key == '3 pointer') {
-            total += value * 3;
-        }  
-    });
+    total += (team['Free throws'] ?? 0) * 1;
+    total += (team['2 pointer'] ?? 0) * 2;
+    total += (team['3 pointer'] ?? 0) * 3;
 
     return total;
 }
