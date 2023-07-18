@@ -2,9 +2,6 @@ int whoWins(Map<String, int> teamA, Map<String, int> teamB) {
     int totalTeamA = calculateTotal(teamA);
     int totalTeamB = calculateTotal(teamB);
 
-    print(totalTeamA);
-    print(totalTeamB);
-
     if (totalTeamA == totalTeamB) {
         return 0;
     } else if (totalTeamA > totalTeamB) {
