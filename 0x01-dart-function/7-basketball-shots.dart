@@ -2,12 +2,15 @@ int whoWins(Map<String, int> teamA, Map<String, int> teamB) {
     int totalTeamA = calculateTotal(teamA);
     int totalTeamB = calculateTotal(teamB);
 
-    if (totalTeamA > totalTeamB) {
-        return 1;
-    } else if (totalTeamA < totalTeamB) {
-        return 2;
-    } else {
+    print(totalTeamA);
+    print(totalTeamB);
+
+    if (totalTeamA == totalTeamB) {
         return 0;
+    } else if (totalTeamA > totalTeamB) {
+        return 1;
+    } else {
+        return 2;
     }
 
 }
@@ -15,9 +18,15 @@ int whoWins(Map<String, int> teamA, Map<String, int> teamB) {
 int calculateTotal(Map<String, int> team) {
     int total = 0;
 
-    total += (team['Free throws'] ?? 0) * 1;
-    total += (team['2 pointer'] ?? 0) * 2;
-    total += (team['3 pointer'] ?? 0) * 3;
+    team.forEach((key, value) {
+        if (key == 'Free throws') {
+            total += value;
+        } else if (key == '2 pointers') {
+            total += value * 2;
+        } else if (key == '3 pointers') {
+            total += value * 3;
+        }
+    });
 
     return total;
 }
