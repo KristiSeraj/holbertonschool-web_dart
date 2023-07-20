@@ -7,8 +7,7 @@ class User extends Password {
     int? id;
     String? user_password;
 
-    User({this.user_password, this.name, this.age, this.height, this.id}) : super();
-
+    User({this.user_password, this.name, this.age, this.height, this.id}) : super(password: user_password);
 
     Map<String, dynamic> toJson() {
         return {
@@ -29,6 +28,6 @@ class User extends Password {
     }
 
     String toString() {
-        return 'User(id : $id ,name: $name, age: $age, height: $height, Password: ${Password}';
+        return 'User(id : $id ,name: $name, age: $age, height: $height, Password: ${isValid()}';
     }
 }
